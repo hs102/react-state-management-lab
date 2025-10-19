@@ -142,18 +142,18 @@ const App = () => {
       )}
       <h2 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Fighters</h2>
       {error && <div style={{ color: 'red', marginBottom: '1em' }}>{error}</div>}
-      <ul className="fighters-list">
-        {zombieFighters.map(fighter => (
-          <li key={fighter.id} className="fighter-card">
-            <img src={fighter.img} alt={fighter.name} width={150} height={150} style={{ objectFit: 'cover', borderRadius: '8px', marginBottom: '0.5rem' }} />
-            <div style={{ fontWeight: 'bold' }}>{fighter.name}</div>
-            <div>Price: {fighter.price}</div>
-            <div>Strength: {fighter.strength}</div>
-            <div>Agility: {fighter.agility}</div>
-            <button onClick={() => handleAddFighter(fighter)} style={{ marginTop: '0.5rem', background: '#222', color: '#fff', border: '1px solid #fff', borderRadius: '4px', padding: '0.3rem 1.2rem', cursor: 'pointer' }}>Add</button>
-          </li>
-        ))}
-      </ul>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '2rem' }}>
+          {zombieFighters.map(fighter => (
+            <div key={fighter.id} className="fighter-card">
+              <img src={fighter.img} alt={fighter.name} width={150} height={150} style={{ objectFit: 'cover', borderRadius: '8px', marginBottom: '0.5rem' }} />
+              <div style={{ fontWeight: 'bold' }}>{fighter.name}</div>
+              <div>Price: {fighter.price}</div>
+              <div>Strength: {fighter.strength}</div>
+              <div>Agility: {fighter.agility}</div>
+              <button onClick={() => handleAddFighter(fighter)} style={{ marginTop: '0.5rem', background: '#222', color: '#fff', border: '1px solid #fff', borderRadius: '4px', padding: '0.3rem 1.2rem', cursor: 'pointer' }}>Add</button>
+            </div>
+          ))}
+        </div>
     </div>
   );
 }

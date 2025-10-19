@@ -9,7 +9,32 @@ ul {
   gap: 16px;
 }
 
+ul.fighters-list, ul.team-list {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 180px;
+  background: #222;
+  border: #fff 3px solid;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  color: #fff;
+  font-size: 1rem;
+}
+
+li.fighter-card {
   list-style: none;
   margin: 0;
   padding: 0;
