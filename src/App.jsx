@@ -118,45 +118,42 @@ const App = () => {
   };
 
   return (
-    <div className="app-container">
-      <h1>React State Management Lab: Zombie Apocalypse Team</h1>
-      <div className="money">Money: ${money}</div>
-      {error && <div style={{ color: 'red', marginBottom: '1em' }}>{error}</div>}
-      <h2>Available Fighters</h2>
-      <ul className="fighters-list">
-        {zombieFighters.map(fighter => (
-          <li key={fighter.id} className="fighter-card">
-            <img src={fighter.img} alt={fighter.name} width={80} height={80} />
-            <div><strong>{fighter.name}</strong></div>
-            <div>Price: ${fighter.price}</div>
-            <div>Strength: {fighter.strength}</div>
-            <div>Agility: {fighter.agility}</div>
-            <button onClick={() => handleAddFighter(fighter)}>Add</button>
-          </li>
-        ))}
-      </ul>
-
-      <h2>Your Team</h2>
+    <div className="app-container" style={{ background: '#222', color: '#fff', minHeight: '100vh', padding: '2rem' }}>
+      <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '2rem' }}>Zombie Fighters</h1>
+      <div style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>Money: {money}</div>
+      <div style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Team Strength: {totalStrength}</div>
+      <div style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Team Agility: {totalAgility}</div>
+      <h2 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Team</h2>
       {team.length === 0 ? (
-        <div>Pick some team members!</div>
+        <div style={{ marginBottom: '2rem' }}>Pick some team members</div>
       ) : (
-        <ul className="team-list">
+        <ul className="team-list" style={{ marginBottom: '2rem' }}>
           {team.map(fighter => (
             <li key={fighter.id} className="fighter-card">
-              <img src={fighter.img} alt={fighter.name} width={80} height={80} />
-              <div><strong>{fighter.name}</strong></div>
-              <div>Price: ${fighter.price}</div>
+              <img src={fighter.img} alt={fighter.name} width={150} height={150} style={{ objectFit: 'cover', borderRadius: '8px', marginBottom: '0.5rem' }} />
+              <div style={{ fontWeight: 'bold' }}>{fighter.name}</div>
+              <div>Price: {fighter.price}</div>
               <div>Strength: {fighter.strength}</div>
               <div>Agility: {fighter.agility}</div>
-              <button onClick={() => handleRemoveFighter(fighter)}>Remove</button>
+              <button onClick={() => handleRemoveFighter(fighter)} style={{ marginTop: '0.5rem', background: '#222', color: '#fff', border: '1px solid #fff', borderRadius: '4px', padding: '0.3rem 1.2rem', cursor: 'pointer' }}>Remove</button>
             </li>
           ))}
         </ul>
       )}
-      <div className="team-stats">
-        <div>Total Strength: {totalStrength}</div>
-        <div>Total Agility: {totalAgility}</div>
-      </div>
+      <h2 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Fighters</h2>
+      {error && <div style={{ color: 'red', marginBottom: '1em' }}>{error}</div>}
+      <ul className="fighters-list">
+        {zombieFighters.map(fighter => (
+          <li key={fighter.id} className="fighter-card">
+            <img src={fighter.img} alt={fighter.name} width={150} height={150} style={{ objectFit: 'cover', borderRadius: '8px', marginBottom: '0.5rem' }} />
+            <div style={{ fontWeight: 'bold' }}>{fighter.name}</div>
+            <div>Price: {fighter.price}</div>
+            <div>Strength: {fighter.strength}</div>
+            <div>Agility: {fighter.agility}</div>
+            <button onClick={() => handleAddFighter(fighter)} style={{ marginTop: '0.5rem', background: '#222', color: '#fff', border: '1px solid #fff', borderRadius: '4px', padding: '0.3rem 1.2rem', cursor: 'pointer' }}>Add</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
